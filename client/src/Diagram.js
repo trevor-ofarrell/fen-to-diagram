@@ -7,7 +7,7 @@ const Diagram = () => {
   const FEN = urlParams.get('fen').split(',');
 
   useEffect(() => {
-    fetch(`http://localhost:3009/screenshot?fen=${FEN}`)
+    fetch(`https://d9.wtf/screenshot?fen=${FEN}`)
       .then(response => response.blob())
       .then(response => {
         const reader = new FileReader();
