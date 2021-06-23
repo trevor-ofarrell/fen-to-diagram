@@ -220,7 +220,7 @@ module.exports = {
       128: "32rem",
       144: "36rem",
       "25%": "25%",
-      "50%": "50vw",
+      "50%": "28vh",
       "45%": "47vw",
     },
     backgroundColor: (theme) => theme("colors"),
