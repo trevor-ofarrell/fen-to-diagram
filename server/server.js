@@ -33,15 +33,15 @@ app.get('/screenshot', async (req, res) => {
         headless: true, args: ['--no-sandbox']
     });
     const [page] = await browser.pages(); 
-    await page.goto('http://localhost:3000');
+    await page.goto(`http://localhost:3000/diagram?fen=${req.query.fen}`);
     //await page._client.send('Emulation.clearDeviceMetricsOverride');
     await page.setViewport({
         width: 1080,
-        height: 1920
+        height: 1220
     })
     console.log('at page')
-    await page.waitForSelector('.grid');
-    const element = await page.$('.grid');
+    await page.waitForSelector('#diagram');
+    const element = await page.$('#diagram');
     await element.screenshot({path: 'fen.png'});
     await browser.close();
     res.sendFile('fen.png', { root: __dirname })
