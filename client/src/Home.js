@@ -12,7 +12,7 @@ const Home = () => {
         pathname: `/diagram?fen=${FEN}`,
         state: { FEN },
     });
-    history.go(0)
+    history.go(0);
   };
 
   return (

@@ -34,7 +34,6 @@ app.get('/screenshot', async (req, res) => {
     });
     const [page] = await browser.pages(); 
     await page.goto(`http://localhost:3000/diagram?fen=${req.query.fen}`);
-    //await page._client.send('Emulation.clearDeviceMetricsOverride');
     await page.setViewport({
         width: 1080,
         height: 1220

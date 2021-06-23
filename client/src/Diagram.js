@@ -5,12 +5,8 @@ const Diagram = () => {
   const [base64, setBase64] = useState('');
   const urlParams = new URLSearchParams(window.location.search);
   const FEN = urlParams.get('fen').split(',');
-  const [listening, setListening] = useState(false);
 
   useEffect(() => {
-    if (!listening) {
-
-      console.log(FEN)
     fetch(`http://localhost:3009/screenshot?fen=${FEN}`)
       .then(response => response.blob())
       .then(response => {
@@ -21,9 +17,7 @@ const Diagram = () => {
             setBase64(base64data)
         }
       })
-      setListening(true)
-    }
-  }, [base64, listening])
+  }, [base64, FEN])
 
   return (
     <div className="bg-gray-400 h-screen w-screen m-auto">
@@ -51,7 +45,11 @@ const Diagram = () => {
           <>
               <h2 className="text-3xl text-center pt-6 mb-12">PNG image of diagram</h2>
               <div className="m-auto">
-                  <img src={base64} className="m-auto border-1 border-gray-500 shadow-xl"/>
+                  <img
+                    src={base64}
+                    alt="chess diagram made from the FEN strings submitted"
+                    className="m-auto border-1 border-gray-500 shadow-xl"
+                  />
               </div>
           </>
       )}
