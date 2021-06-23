@@ -1,2 +1,2 @@
-# FEN-to-diagram
+# fen-to-diagram
 convert array of FEN strings into a chess diagram.
