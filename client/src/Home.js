@@ -18,15 +18,15 @@ const Home = () => {
   return (
     <div
       style={{ height: height, width: width }}
-      className="bg-scheme-dark overflow-hidden fixed h-full max-h-full"
+      className="bg-gray-700 overflow-hidden fixed h-full max-h-full"
     >
       <div className="text-scheme-orange text-3xl text-center p-2 pb-6">
         FEN to diagram
       </div>
       <form>
-        <div className="md:w-3/5 md:mt-20 max-w-xl overflow-hidden p-4 mt-6 m-auto">
+        <div className="md:w-3/5 md:mt-30 max-w-xl overflow-hidden p-4 mt-6 m-auto">
           <input
-            className="w-full h-10 pl-3 mb-4 text-base bg-scheme-light placeholder-gray-500 text-gray-500 border rounded-lg focus:shadow-outline"
+            className="w-full h-10 pl-3 mb-8 text-base bg-scheme-light placeholder-gray-500 text-gray-500 border rounded-lg"
             id="message"
             type="text"
             label="Message"
@@ -47,7 +47,7 @@ const Home = () => {
       </form>
       <footer className="text-center fixed w-full bottom-0 text-scheme-orange p-4 flex">
         <a
-          href="https://github.com/trevor-ofarrell/lichessTV-watch-party"
+          href="https://github.com/trevor-ofarrell/fen-to-diagram"
           className="lg:text-xl text-sm underline m-auto"
         >
           check out the source code on GitHub
