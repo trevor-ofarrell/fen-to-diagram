@@ -36,18 +36,18 @@ const Diagram = () => {
       {!base64 ? (
         <div>
           <div className="max-w-lg m-auto grid grid-cols-2 pt-10 pl-6">
-            <h2 className="text-3xl font-normal text-center pt-6 mb-12">creating diagram</h2>
+            <h2 className="text-3xl font-normal text-center pt-10 mb-12 opacity-75 text-gray-800">creating diagram</h2>
             <div class=" flex justify-center items-center">
-              <div class="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900"></div>
+              <div class="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-600"></div>
             </div>
           </div>
           <div
-            className={`grid sm:${FEN.length > 1 ? 'grid-cols-2' : 'grid-cols-1'} grid-cols-1 m-auto pt-12 h-auto`}
+            className={`grid md:${FEN.length > 1 ? 'grid-cols-2' : 'grid-cols-1'} grid-cols-1 m-auto pt-12 h-auto min-w-full`}
             id="diagram"
           >
             {FEN.map((fen, i) => {
               return (
-                <div className="p-auto m-auto mb-16 h-auto">
+                <div className="p-auto m-auto pb-28 h-auto">
                   <div className="flex flex-row">
                     <span className="text-md font-normal text-black">#{i + 1}</span>
                     <div className={`rounded-full h-4 w-4 ${fen[1] === 'b' ? "bg-black" : "bg-white border-black border-1"} ml-auto mr-3`}></div>
@@ -65,16 +65,16 @@ const Diagram = () => {
           </div>
         </div>
       ):(
-          <>
-              <h2 className="text-3xl font-normal text-center pt-6 mb-12">PNG of diagram created!</h2>
-              <div className="m-auto">
-                  <img
-                    src={base64}
-                    alt="chess diagram made from the FEN strings submitted"
-                    className="m-auto border-1 border-gray-500 shadow-xl"
-                  />
-              </div>
-          </>
+        <>
+          <h2 className="text-3xl font-normal text-center pt-6 mb-12 text-gray-800 opacity-75">PNG of diagram created!</h2>
+          <div className="m-auto">
+            <img
+              src={base64}
+              alt="chess diagram made from the FEN strings submitted"
+              className="m-auto border-1 border-gray-500 shadow-xl"
+            />
+          </div>
+        </>
       )}
     </div>
   );

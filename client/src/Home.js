@@ -20,14 +20,14 @@ const Home = () => {
       style={{ height: height, width: width }}
       className="bg-gray-400 overflow-hidden fixed h-full max-h-full"
     >
-      <div className="text-gray-700 text-3xl text-center p-2 pb-6">
+      <div className="text-gray-800 opacity-75 text-3xl text-center p-2 pb-6">
         FEN to diagram
       </div>
       <form>
         <div className="md:w-3/5 md:mt-50% max-w-xl overflow-hidden p-4 mt-50% m-auto">
-          <div className="text-md font-normal text-gray-600 text-center pb-2">limit of 10 FENs per request</div>
+          <div className="text-md font-normal text-gray-600 text-center pb-4">limit of 10 FENs per request</div>
           <input
-            className="w-full h-10 pl-3 mb-8 text-base bg-gray-500 placeholder-gray-700 text-gray-700 border rounded-lg"
+            className="w-full h-10 pl-3 mb-8 text-base bg-gray-500 placeholder-gray-700 text-center placeholder-opacity-75 text-gray-700 border rounded-lg"
             id="message"
             type="text"
             label="Message"

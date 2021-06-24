@@ -27,8 +27,9 @@ app.use(express.static('public'));
 app.use('/images', express.static('images'));
   
 app.get('/screenshot', async (req, res) => {
+  try{
     const browser = await puppeteer.launch({
-      headless: false,
+      headless: true,
       args: [
         '--no-sandbox',
         '--disable-setuid-sandbox',
@@ -41,7 +42,7 @@ app.get('/screenshot', async (req, res) => {
       ]
     });
     const [page] = await browser.pages(); 
-    await page.goto(`https://fen-to-diagram.vercel.app/diagram?fen=${req.query.fen}`);
+    await page.goto(`https://d9.wtf/diagram?fen=${req.query.fen}`);
     await page.setViewport({
         width: 1280,
         height: 1220
@@ -54,6 +55,10 @@ app.get('/screenshot', async (req, res) => {
     await browser.close();
     shell.exec('pkill chrome');
     res.sendFile('fen.png', { root: __dirname })
+  }catch{
+    return new Error("puppeteer script failed")
+  }
+
 });
 
 app.listen(PORT, () => {
