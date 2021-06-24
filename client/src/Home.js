@@ -25,12 +25,13 @@ const Home = () => {
       </div>
       <form>
         <div className="md:w-3/5 md:mt-50% max-w-xl overflow-hidden p-4 mt-6 m-auto">
+          <div className="text-md font-normal text-gray-600 text-center pb-2">limit of 10 FENs per request</div>
           <input
             className="w-full h-10 pl-3 mb-8 text-base bg-gray-500 placeholder-gray-700 text-gray-700 border rounded-lg"
             id="message"
             type="text"
             label="Message"
-            placeholder="Enter FEN(s). Seperate multiple entries with commas."
+            placeholder="Enter FEN(s). Separate multiple entries with commas."
             variant="outlined"
             autoComplete="off"
             value={FEN}
