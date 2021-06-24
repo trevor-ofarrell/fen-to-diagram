@@ -25,11 +25,11 @@ const Diagram = () => {
   }, [base64, FEN, listening])
 
   return (
-    <div className="bg-gray-400 h-screen w-screen m-auto">
+    <div className="bg-gray-400 min-h-screen h-full w-screen m-auto overflow-y-hidden">
       {!base64 ? (
         <div>
-          <div className="grid grid-cols-2 pt-10">
-            <h2 className="text-3xl text-center pt-6 mb-12">creating diagram...</h2>
+          <div className="max-w-lg m-auto grid grid-cols-2 pt-10 pl-6">
+            <h2 className="text-3xl font-semibold text-center pt-6 mb-12">creating diagram</h2>
             <div class=" flex justify-center items-center">
               <div class="animate-spin rounded-full h-32 w-32 border-b-4 border-gray-900"></div>
             </div>
@@ -56,7 +56,7 @@ const Diagram = () => {
         </div>
       ):(
           <>
-              <h2 className="text-3xl text-center pt-6 mb-12">PNG of diagram created!</h2>
+              <h2 className="text-3xl font-semibold text-center pt-6 mb-12">PNG of diagram created!</h2>
               <div className="m-auto">
                   <img
                     src={base64}
