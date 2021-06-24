@@ -29,9 +29,9 @@ const Diagram = () => {
       {!base64 ? (
         <div>
           <div className="max-w-lg m-auto grid grid-cols-2 pt-10 pl-6">
-            <h2 className="text-3xl font-semibold text-center pt-6 mb-12">creating diagram</h2>
+            <h2 className="text-3xl font-normal text-center pt-6 mb-12">creating diagram</h2>
             <div class=" flex justify-center items-center">
-              <div class="animate-spin rounded-full h-32 w-32 border-b-4 border-gray-900"></div>
+              <div class="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900"></div>
             </div>
           </div>
           <div
@@ -56,7 +56,7 @@ const Diagram = () => {
         </div>
       ):(
           <>
-              <h2 className="text-3xl font-semibold text-center pt-6 mb-12">PNG of diagram created!</h2>
+              <h2 className="text-3xl font-normal text-center pt-6 mb-12">PNG of diagram created!</h2>
               <div className="m-auto">
                   <img
                     src={base64}
