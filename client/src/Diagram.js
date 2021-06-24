@@ -42,7 +42,7 @@ const Diagram = () => {
             </div>
           </div>
           <div
-            className={`grid sm:${FEN.length > 1 ? 'grid-cols-2' : 'grid-cols-1'} grid-cols-1 m-auto pt-12 h-auto`}
+            className={`grid md:${FEN.length > 1 ? 'grid-cols-2' : 'grid-cols-1'} grid-cols-1 m-auto pt-12 h-auto`}
             id="diagram"
           >
             {FEN.map((fen, i) => {
