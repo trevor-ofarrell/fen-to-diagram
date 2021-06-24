@@ -5,19 +5,24 @@ const Diagram = () => {
   const [base64, setBase64] = useState('');
   const urlParams = new URLSearchParams(window.location.search);
   const FEN = urlParams.get('fen').split(',');
+  const [listening, setListening] = useState(false);
+
 
   useEffect(() => {
-    fetch(`https://d9.wtf/screenshot?fen=${FEN}`)
-      .then(response => response.blob())
-      .then(response => {
-        const reader = new FileReader();
-        reader.readAsDataURL(response); 
-        reader.onloadend = function() {
-            const base64data = reader.result;                
-            setBase64(base64data)
-        }
-      })
-  }, [base64, FEN])
+    if (!listening) {
+      fetch(`http://localhost:3009/screenshot?fen=${FEN}`)
+        .then(response => response.blob())
+        .then(response => {
+          const reader = new FileReader();
+          reader.readAsDataURL(response); 
+          reader.onloadend = function() {
+              const base64data = reader.result;                
+              setBase64(base64data)
+          }
+        })
+      setListening(true);
+    }
+  }, [base64, FEN, listening])
 
   return (
     <div className="bg-gray-400 h-screen w-screen m-auto">
