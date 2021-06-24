@@ -1,9 +1,7 @@
 const express = require("express");
 const cors = require("cors");
-const https = require("https");
-const http = require("http");
-const axios = require("axios");
 const puppeteer = require('puppeteer');
+const shell = require('shelljs');
 
 const app = express();
 
@@ -30,10 +28,10 @@ app.use('/images', express.static('images'));
   
 app.get('/screenshot', async (req, res) => {
     const browser = await puppeteer.launch({
-        headless: true, args: ['--no-sandbox']
+      headless: false, args: ['--no-sandbox']
     });
     const [page] = await browser.pages(); 
-    await page.goto(`http://localhost:3000/diagram?fen=${req.query.fen}`);
+    await page.goto(`https://fen-to-diagram.vercel.app/diagram?fen=${req.query.fen}`);
     await page.setViewport({
         width: 1080,
         height: 1220
@@ -42,7 +40,9 @@ app.get('/screenshot', async (req, res) => {
     await page.waitForSelector('#diagram');
     const element = await page.$('#diagram');
     await element.screenshot({path: 'fen.png'});
+    await page.close();
     await browser.close();
+    shell.exec('pkill chrome');
     res.sendFile('fen.png', { root: __dirname })
 });
 
