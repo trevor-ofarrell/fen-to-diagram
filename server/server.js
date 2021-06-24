@@ -42,7 +42,7 @@ app.get('/screenshot', async (req, res) => {
       ]
     });
     const [page] = await browser.pages(); 
-    await page.goto(`https://fen-to-diagram.vercel.app/diagram?fen=${req.query.fen}`);
+    await page.goto(`https://fen2diagram.com/diagram?fen=${req.query.fen}`);
     await page.setViewport({
         width: 1280,
         height: 1220
