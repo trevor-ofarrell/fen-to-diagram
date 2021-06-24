@@ -2,7 +2,7 @@
 convert FEN strings into chess diagrams.
 
 <p align="center"> 
-  <img src="/client/public/mac.gif" alt="My Project GIF" width="auto" height="auto">
+  <img src="/client/public/appdemo.gif" alt="My Project GIF" width="auto" height="auto">
 </p>
 
 ## About
