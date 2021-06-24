@@ -10,7 +10,7 @@ const Diagram = () => {
 
   useEffect(() => {
     if (!listening) {
-      fetch(`http://localhost:3009/screenshot?fen=${FEN}`)
+      fetch(`https://d9.wtf/screenshot?fen=${FEN}`)
         .then(response => response.blob())
         .then(response => {
           const reader = new FileReader();
