@@ -32,6 +32,7 @@ const Home = () => {
             label="Message"
             placeholder="Enter FEN(s). Seperate multiple entries with commas."
             variant="outlined"
+            autoComplete="off"
             value={FEN}
             onChange={(event) => setFEN(event.target.value)}
           />
