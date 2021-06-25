@@ -42,12 +42,12 @@ const Diagram = () => {
             </div>
           </div>
           <div
-            className={`grid m-auto pt-12 h-auto min-w-full md:${FEN.length > 1 ? 'grid-cols-2' : 'grid-cols-1'}`}
+            className={`grid grid-cols-1 md:grid-cols-2 pt-12 h-auto min-w-full}`}
             id="diagram"
           >
             {FEN.map((fen, i) => {
               return (
-                <div className="p-auto m-auto pb-28 h-auto">
+                <div className="p-auto pb-28 m-auto h-auto">
                   <div className="flex flex-row">
                     <span className="text-md font-normal text-black">#{i + 1}</span>
                     <div className={`rounded-full h-4 w-4 ${fen[1] === 'b' ? "bg-black" : "bg-white border-black border-1"} ml-auto mr-3`}></div>
