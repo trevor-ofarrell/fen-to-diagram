@@ -32,24 +32,24 @@ const Diagram = () => {
   }, [base64, listening, FEN])
 
   return (
-    <div className="bg-gray-400 min-h-screen h-full w-screen m-auto overflow-y-hidden">
+    <div className="w-screen h-full min-h-screen m-auto overflow-y-hidden bg-gray-400">
       {!base64 ? (
         <div>
-          <div className="max-w-lg m-auto grid grid-cols-2 pt-10 pl-6">
-            <h2 className="text-3xl font-normal text-center pt-10 mb-12 opacity-75 text-gray-800">creating diagram</h2>
-            <div class=" flex justify-center items-center">
-              <div class="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-600"></div>
+          <div className="grid max-w-lg grid-cols-2 pt-10 pl-6 m-auto">
+            <h2 className="pt-10 mb-12 text-3xl font-normal text-center text-gray-800 opacity-75">creating diagram</h2>
+            <div className="flex items-center justify-center ">
+              <div className="w-32 h-32 border-b-2 border-gray-600 rounded-full animate-spin"></div>
             </div>
           </div>
           <div
-            className={`grid grid-cols-1 md:grid-cols-2 pt-12 h-auto min-w-full}`}
+            className={`grid grid-cols-1 ${FEN.length > 1 ? 'md:grid-cols-2' : 'md:grid-cols-1'} pt-12 h-auto min-w-full mx-auto`}
             id="diagram"
           >
             {FEN.map((fen, i) => {
               return (
-                <div className="p-auto pb-28 m-auto h-auto">
+                <div className="h-auto m-auto p-auto pb-28">
                   <div className="flex flex-row">
-                    <span className="text-md font-normal text-black">#{i + 1}</span>
+                    <span className="font-normal text-black text-md">#{i + 1}</span>
                     <div className={`rounded-full h-4 w-4 ${fen[1] === 'b' ? "bg-black" : "bg-white border-black border-1"} ml-auto mr-3`}></div>
                   </div>
                   <Chessboard
@@ -66,12 +66,12 @@ const Diagram = () => {
         </div>
       ):(
         <>
-          <h2 className="text-3xl font-normal text-center pt-6 mb-12 text-gray-800 opacity-75">PNG of diagram created!</h2>
+          <h2 className="pt-6 mb-12 text-3xl font-normal text-center text-gray-800 opacity-75">PNG of diagram created!</h2>
           <div className="m-auto">
             <img
               src={base64}
               alt="chess diagram made from the FEN strings submitted"
-              className="m-auto border-1 border-gray-500 shadow-xl"
+              className="m-auto border-gray-500 shadow-xl border-1"
             />
           </div>
         </>
