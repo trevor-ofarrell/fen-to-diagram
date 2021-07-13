@@ -15,6 +15,11 @@ const Diagram = () => {
     return [item, chess.turn()]
   }).slice(0, 10);
 
+  const isMated = (fen) => {
+    const chess = new Chess(fen)
+    return([chess.in_checkmate(), chess.turn()])
+  }
+
   useEffect(() => {
     if (!listening) {
       fetch(`https://d9.wtf/screenshot?fen=${FEN}`)
@@ -50,7 +55,17 @@ const Diagram = () => {
                 <div className="h-auto m-auto p-auto pb-28">
                   <div className="flex flex-row">
                     <span className="font-normal text-black text-md">#{i + 1}</span>
-                    <div className={`rounded-full h-4 w-4 ${fen[1] === 'b' ? "bg-black" : "bg-white border-black border-1"} ml-auto mr-3`}></div>
+                    {isMated(fen[0])[0] === true ? (
+                      <>
+                        {isMated(fen[0])[1] === 'b' ? (
+                          <div className="ml-auto">1-0</div>
+                        ):(
+                          <div className="ml-auto">0-1</div>
+                        )}
+                      </>
+                    ):(
+                      <div className={`rounded-full h-4 w-4 ${fen[1] === 'b' ? "bg-black" : "bg-white border-black border-1"} ml-auto mr-3`}></div>
+                    )}
                   </div>
                   <Chessboard
                       id={`${i}key`}
