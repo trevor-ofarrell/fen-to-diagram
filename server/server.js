@@ -9,9 +9,8 @@ const PORT = 3009;
 app.use(
     cors({
       origin: [
-        "https://lichess-tv-watch-party.vercel.app",
+        "https://fen2diagram.com",
         "http://localhost:3000",
-        '1.127.0.1',
       ],
       allowedHeaders: [
         "Accept-Version",
@@ -47,7 +46,6 @@ app.get('/screenshot', async (req, res) => {
         width: 1280,
         height: 1220
     })
-    console.log('at page')
     await page.waitForSelector('#diagram');
     const element = await page.$('#diagram');
     await element.screenshot({path: 'fen.png'});

@@ -21,20 +21,17 @@ const Diagram = () => {
   }
 
   useEffect(() => {
-    if (!listening) {
-      fetch(`https://d9.wtf/screenshot?fen=${FEN}`)
-        .then(response => response.blob())
-        .then(response => {
-          const reader = new FileReader();
-          reader.readAsDataURL(response); 
-          reader.onloadend = () => {
-              const base64data = reader.result;                
-              setBase64(base64data)
-          }
-        })
-      setListening(true);
-    }
-  }, [base64, listening, FEN])
+    fetch(`https://d9.wtf/screenshot?fen=${FEN}`)
+      .then(response => response.blob())
+      .then(response => {
+        const reader = new FileReader();
+        reader.readAsDataURL(response); 
+        reader.onloadend = () => {
+            const base64data = reader.result;                
+            setBase64(base64data)
+        }
+      })
+  }, [base64, FEN])
 
   return (
     <div className="w-screen h-full min-h-screen m-auto overflow-y-hidden bg-gray-400">
