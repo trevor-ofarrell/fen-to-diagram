@@ -5,7 +5,6 @@ import Chess from "chess.js";
 const Diagram = () => {
   const [base64, setBase64] = useState('');
   const urlParams = new URLSearchParams(window.location.search);
-  const [listening, setListening] = useState(false);
 
   const FEN = urlParams.get('fen').split(',').filter(
     fen => new Chess().load(fen) === true
